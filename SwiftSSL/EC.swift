@@ -1,5 +1,5 @@
 //
-//  HashAlgorithm.swift
+//  EC.swift
 //  SwiftSSL
 //
 //  Created by 0day on 14/10/6.
@@ -7,7 +7,3 @@
 //
 
 import Foundation
-
-public protocol HashAlgorithm {
-    func hashValueOfData(data: NSData) -> NSData
-}

@@ -9,13 +9,8 @@
 /* Begin PBXBuildFile section */
 		766211D419E20AF900337784 /* SwiftSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 766211D319E20AF900337784 /* SwiftSSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		766211DE19E20AFA00337784 /* SwiftSSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211DD19E20AFA00337784 /* SwiftSSLTests.swift */; };
-		766211EB19E27E6900337784 /* KeyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211EA19E27E6900337784 /* KeyFactory.swift */; };
-		766211ED19E27ED800337784 /* SymmetricKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211EC19E27ED800337784 /* SymmetricKey.swift */; };
-		766211EF19E27EF900337784 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211EE19E27EF900337784 /* Coding.swift */; };
-		766211F119E281AC00337784 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F019E281AC00337784 /* PublicKey.swift */; };
-		766211F319E2829D00337784 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F219E2829D00337784 /* PrivateKey.swift */; };
-		766211F519E2832900337784 /* HashAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F419E2832900337784 /* HashAlgorithm.swift */; };
-		766211F719E2842500337784 /* KeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F619E2842500337784 /* KeyPair.swift */; };
+		766211FA19E2E26300337784 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F919E2E26300337784 /* HMAC.swift */; };
+		766211FD19E2E46F00337784 /* EC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211FC19E2E46F00337784 /* EC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +20,9 @@
 		766211D919E20AFA00337784 /* SwiftSSLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSSLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		766211DC19E20AFA00337784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		766211DD19E20AFA00337784 /* SwiftSSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSSLTests.swift; sourceTree = "<group>"; };
-		766211EA19E27E6900337784 /* KeyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFactory.swift; sourceTree = "<group>"; };
-		766211EC19E27ED800337784 /* SymmetricKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmetricKey.swift; sourceTree = "<group>"; };
-		766211EE19E27EF900337784 /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
-		766211F019E281AC00337784 /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
-		766211F219E2829D00337784 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
-		766211F419E2832900337784 /* HashAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashAlgorithm.swift; sourceTree = "<group>"; };
-		766211F619E2842500337784 /* KeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPair.swift; sourceTree = "<group>"; };
+		766211F919E2E26300337784 /* HMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
+		766211FC19E2E46F00337784 /* EC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EC.swift; sourceTree = "<group>"; };
+		766211FE19E2E7DC00337784 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				766211D019E20AF900337784 /* SwiftSSL */,
+				7662120019E2E7E700337784 /* Frameworks */,
 				766211DA19E20AFA00337784 /* SwiftSSLTests */,
 				766211CF19E20AF900337784 /* Products */,
 			);
@@ -74,7 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				766211D319E20AF900337784 /* SwiftSSL.h */,
-				766211E919E27E3100337784 /* Core */,
+				766211FB19E2E3CA00337784 /* EC */,
+				766211F819E2E1A800337784 /* HMAC */,
 				766211D119E20AF900337784 /* Supporting Files */,
 			);
 			path = SwiftSSL;
@@ -105,18 +98,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		766211E919E27E3100337784 /* Core */ = {
+		766211F819E2E1A800337784 /* HMAC */ = {
 			isa = PBXGroup;
 			children = (
-				766211EE19E27EF900337784 /* Coding.swift */,
-				766211EA19E27E6900337784 /* KeyFactory.swift */,
-				766211EC19E27ED800337784 /* SymmetricKey.swift */,
-				766211F019E281AC00337784 /* PublicKey.swift */,
-				766211F219E2829D00337784 /* PrivateKey.swift */,
-				766211F419E2832900337784 /* HashAlgorithm.swift */,
-				766211F619E2842500337784 /* KeyPair.swift */,
+				766211F919E2E26300337784 /* HMAC.swift */,
 			);
-			name = Core;
+			name = HMAC;
+			sourceTree = "<group>";
+		};
+		766211FB19E2E3CA00337784 /* EC */ = {
+			isa = PBXGroup;
+			children = (
+				766211FC19E2E46F00337784 /* EC.swift */,
+			);
+			name = EC;
+			sourceTree = "<group>";
+		};
+		7662120019E2E7E700337784 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				766211FE19E2E7DC00337784 /* libcommonCrypto.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,13 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				766211EF19E27EF900337784 /* Coding.swift in Sources */,
-				766211EB19E27E6900337784 /* KeyFactory.swift in Sources */,
-				766211F719E2842500337784 /* KeyPair.swift in Sources */,
-				766211F119E281AC00337784 /* PublicKey.swift in Sources */,
-				766211F519E2832900337784 /* HashAlgorithm.swift in Sources */,
-				766211ED19E27ED800337784 /* SymmetricKey.swift in Sources */,
-				766211F319E2829D00337784 /* PrivateKey.swift in Sources */,
+				766211FA19E2E26300337784 /* HMAC.swift in Sources */,
+				766211FD19E2E46F00337784 /* EC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +340,14 @@
 				INFOPLIST_FILE = SwiftSSL/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MODULEMAP_FILE = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = CommonCrypto;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -359,8 +363,14 @@
 				INFOPLIST_FILE = SwiftSSL/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MODULEMAP_FILE = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
 			name = Release;
 		};
