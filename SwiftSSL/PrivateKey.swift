@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol PrivateKey: Coding {
+public protocol PrivateKey: class, Coding {
     func decryptCipher(cipher: NSData) -> (message: NSData?, error: NSError?)
     func signWithSHA128(message: NSData) -> (signature: NSData?, error: NSError?)
 }

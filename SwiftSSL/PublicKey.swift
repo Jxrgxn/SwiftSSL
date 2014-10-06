@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol PublicKey: Coding {
+public protocol PublicKey: class, Coding {
     func encryptMessage(message: NSData) -> (cipher: NSData?, error: NSError?)
     func verifySignatureWithSHA128(signature: NSData, message: NSData) -> Bool
     func verifySignatureWithSHA256(signature: NSData, message: NSData) -> Bool
