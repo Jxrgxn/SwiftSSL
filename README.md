@@ -13,7 +13,7 @@ SwiftSSL is an Elegant crypto toolkit in Swift, based on CommonCrypto.
 - Add SwiftSSL.xcodeproj as subproject
 
 - Configure your project
-- Add relative path for file **module.map** in your project **Build Settings / Swift Compiler - Search Paths / Import Paths**
+	- Add relative path for file **module.map** in your project **Build Settings / Swift Compiler - Search Paths / Import Paths**
 
 - Have fun!
 

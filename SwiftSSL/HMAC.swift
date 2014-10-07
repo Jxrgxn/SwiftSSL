@@ -54,14 +54,21 @@ public enum HMACAlgorithm {
 
 extension String {
     public func sign(algorithm: HMACAlgorithm, key: String) -> String {
-        let string = self.cStringUsingEncoding(NSUTF8StringEncoding)
-        let stringLength = UInt(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        var data = self.dataUsingEncoding(NSUTF8StringEncoding)
+        return data!.sign(algorithm, key: key)
+    }
+}
+
+extension NSData {
+    public func sign(algorithm: HMACAlgorithm, key: String) -> String {
+        let string = UnsafePointer<UInt8>(self.bytes)
+        let stringLength = UInt(self.length)
         let digestLength = algorithm.digestLength()
         let keyString = key.cStringUsingEncoding(NSUTF8StringEncoding)
         let keyLength = UInt(key.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         var result: CUnsignedChar = 0
         
-        CCHmac(algorithm.toCCEnum(), keyString!, keyLength, string!, stringLength, &result)
+        CCHmac(algorithm.toCCEnum(), keyString!, keyLength, string, stringLength, &result)
         
         var hash: String = ""
         for i in 0..<digestLength {
@@ -69,12 +76,5 @@ extension String {
         }
         
         return hash
-    }
-}
-
-extension NSData {
-    public func sign(algorithm: HMACAlgorithm, key: String) -> String {
-        var string: String = NSString(data: self, encoding: NSUTF8StringEncoding)
-        return string.sign(algorithm, key: key)
     }
 }

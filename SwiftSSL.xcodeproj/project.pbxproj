@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		761E3A2F19E3F92C0097A62F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E3A2E19E3F92C0097A62F /* Extension.swift */; };
 		761E3A3319E3FD4C0097A62F /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E3A3219E3FD4C0097A62F /* Digest.swift */; };
+		761E3A3419E437330097A62F /* SwiftSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766211CE19E20AF900337784 /* SwiftSSL.framework */; };
+		761E3A3519E4373A0097A62F /* SwiftSSL.framework in Resources */ = {isa = PBXBuildFile; fileRef = 766211CE19E20AF900337784 /* SwiftSSL.framework */; };
 		766211D419E20AF900337784 /* SwiftSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 766211D319E20AF900337784 /* SwiftSSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		766211DE19E20AFA00337784 /* SwiftSSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211DD19E20AFA00337784 /* SwiftSSLTests.swift */; };
 		766211FA19E2E26300337784 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F919E2E26300337784 /* HMAC.swift */; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761E3A3419E437330097A62F /* SwiftSSL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				766211D319E20AF900337784 /* SwiftSSL.h */,
-				761E3A3019E3FD280097A62F /* Crypto */,
 				761E3A2D19E3F9120097A62F /* Extension */,
+				761E3A3019E3FD280097A62F /* Crypto */,
 				766211D119E20AF900337784 /* Supporting Files */,
 			);
 			path = SwiftSSL;
@@ -223,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761E3A3519E4373A0097A62F /* SwiftSSL.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +398,7 @@
 				INFOPLIST_FILE = SwiftSSLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
 			name = Debug;
 		};
@@ -407,6 +412,7 @@
 				INFOPLIST_FILE = SwiftSSLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
 			name = Release;
 		};
