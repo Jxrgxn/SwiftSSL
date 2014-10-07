@@ -9,10 +9,7 @@
 import Foundation
 import CommonCrypto
 
-/**
- * Reference: http://stackoverflow.com/a/24411522/313633
- */
-
+// Base: http://stackoverflow.com/a/24411522/313633
 public enum HMACAlgorithm {
     case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
     
@@ -56,7 +53,7 @@ public enum HMACAlgorithm {
 }
 
 extension String {
-    public func digest(algorithm: HMACAlgorithm, key: String) -> String {
+    public func sign(algorithm: HMACAlgorithm, key: String) -> String {
         let string = self.cStringUsingEncoding(NSUTF8StringEncoding)
         let stringLength = UInt(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         let digestLength = algorithm.digestLength()
@@ -75,3 +72,9 @@ extension String {
     }
 }
 
+extension NSData {
+    public func sign(algorithm: HMACAlgorithm, key: String) -> String {
+        var string: String = NSString(data: self, encoding: NSUTF8StringEncoding)
+        return string.sign(algorithm, key: key)
+    }
+}
