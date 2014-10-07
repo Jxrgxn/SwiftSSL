@@ -23,6 +23,7 @@
 		766211F919E2E26300337784 /* HMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
 		766211FC19E2E46F00337784 /* EC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EC.swift; sourceTree = "<group>"; };
 		766211FE19E2E7DC00337784 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		7662120619E3DC7700337784 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = SwiftSSL/Playground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +47,7 @@
 		766211C419E20AF900337784 = {
 			isa = PBXGroup;
 			children = (
+				7662120619E3DC7700337784 /* Playground.playground */,
 				766211D019E20AF900337784 /* SwiftSSL */,
 				7662120019E2E7E700337784 /* Frameworks */,
 				766211DA19E20AFA00337784 /* SwiftSSLTests */,
