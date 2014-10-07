@@ -14,7 +14,7 @@ import Foundation
 extension Int {
     subscript(digitIndex: Int) -> Int {
         var decimalBase = 1
-            for _ in 1...digitIndex {
+            for _ in 0..<digitIndex {
                 decimalBase *= 10
             }
         return (self / decimalBase) % 10
@@ -24,7 +24,7 @@ extension Int {
 extension UInt {
     subscript(digitIndex: Int) -> UInt {
         var decimalBase:UInt = 1
-            for _ in 1...digitIndex {
+            for _ in 0..<digitIndex {
                 decimalBase *= 10
             }
             return (self / decimalBase) % 10
@@ -34,7 +34,7 @@ extension UInt {
 extension UInt8 {
     subscript(digitIndex: Int) -> UInt8 {
         var decimalBase:UInt8 = 1
-            for _ in 1...digitIndex {
+            for _ in 0...digitIndex {
                 decimalBase *= 10
             }
             return (self / decimalBase) % 10

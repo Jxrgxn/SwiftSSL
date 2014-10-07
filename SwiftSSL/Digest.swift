@@ -15,7 +15,7 @@ public enum DigestAlgorithm {
     case MD2, MD4, MD5, SHA1, SHA224, SHA256, SHA384, SHA512
     
     func progressClosure() -> DigestAlgorithmClosure {
-        var closure: DigestAlgorithmClosure = {}
+        var closure: DigestAlgorithmClosure?
         
         switch self {
         case .MD2:
@@ -35,7 +35,7 @@ public enum DigestAlgorithm {
         default:
             println("Holly SHIT!")
         }
-        return closure
+        return closure!
     }
     
     func digestLength() -> Int {

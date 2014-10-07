@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 SwiftP2P. All rights reserved.
 //
 
-import UIKit
 import XCTest
+import SwiftSSL
 
 class SwiftSSLTests: XCTestCase {
     
@@ -16,11 +16,10 @@ class SwiftSSLTests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+    func testHMAC_MD5() {
+        var planText: String = "This is MD5 test."
+        var signature = planText.sign(SwiftSSL.HMACAlgorithm.MD5, key: "Halo")
+        
+        XCTAssertEqual(signature, "391b07919974622fe55a7f3dea276f83", signature)
     }
-    
 }

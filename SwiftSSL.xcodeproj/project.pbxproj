@@ -8,13 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		761E3A2F19E3F92C0097A62F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E3A2E19E3F92C0097A62F /* Extension.swift */; };
-		761E3A3319E3FD4C0097A62F /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E3A3219E3FD4C0097A62F /* Digest.swift */; };
-		761E3A3419E437330097A62F /* SwiftSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766211CE19E20AF900337784 /* SwiftSSL.framework */; };
-		761E3A3519E4373A0097A62F /* SwiftSSL.framework in Resources */ = {isa = PBXBuildFile; fileRef = 766211CE19E20AF900337784 /* SwiftSSL.framework */; };
 		766211D419E20AF900337784 /* SwiftSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 766211D319E20AF900337784 /* SwiftSSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		766211DE19E20AFA00337784 /* SwiftSSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211DD19E20AFA00337784 /* SwiftSSLTests.swift */; };
 		766211FA19E2E26300337784 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F919E2E26300337784 /* HMAC.swift */; };
+		76F486F719E4529600FF1E9E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F486F619E4529600FF1E9E /* SystemConfiguration.framework */; };
+		76F486FA19E4552E00FF1E9E /* SwiftSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766211CE19E20AF900337784 /* SwiftSSL.framework */; };
+		76F486FB19E4554C00FF1E9E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F486F619E4529600FF1E9E /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76F486F819E4552900FF1E9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 766211C519E20AF900337784 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 766211CD19E20AF900337784;
+			remoteInfo = SwiftSSL;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		761E3A2E19E3F92C0097A62F /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -28,6 +38,7 @@
 		766211F919E2E26300337784 /* HMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
 		766211FE19E2E7DC00337784 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		7662120619E3DC7700337784 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = SwiftSSL/Playground.playground; sourceTree = "<group>"; };
+		76F486F619E4529600FF1E9E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F486F719E4529600FF1E9E /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,7 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				761E3A3419E437330097A62F /* SwiftSSL.framework in Frameworks */,
+				76F486FB19E4554C00FF1E9E /* SystemConfiguration.framework in Frameworks */,
+				76F486FA19E4552E00FF1E9E /* SwiftSSL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +138,7 @@
 		7662120019E2E7E700337784 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76F486F619E4529600FF1E9E /* SystemConfiguration.framework */,
 				766211FE19E2E7DC00337784 /* libcommonCrypto.dylib */,
 			);
 			name = Frameworks;
@@ -173,6 +187,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				76F486F919E4552900FF1E9E /* PBXTargetDependency */,
 			);
 			name = SwiftSSLTests;
 			productName = SwiftSSLTests;
@@ -226,7 +241,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				761E3A3519E4373A0097A62F /* SwiftSSL.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				761E3A3319E3FD4C0097A62F /* Digest.swift in Sources */,
 				761E3A2F19E3F92C0097A62F /* Extension.swift in Sources */,
 				766211FA19E2E26300337784 /* HMAC.swift in Sources */,
 			);
@@ -252,6 +265,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76F486F919E4552900FF1E9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 766211CD19E20AF900337784 /* SwiftSSL */;
+			targetProxy = 76F486F819E4552900FF1E9E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		766211DF19E20AFA00337784 /* Debug */ = {
@@ -397,6 +418,10 @@
 				);
 				INFOPLIST_FILE = SwiftSSLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
@@ -411,6 +436,10 @@
 				);
 				INFOPLIST_FILE = SwiftSSLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
