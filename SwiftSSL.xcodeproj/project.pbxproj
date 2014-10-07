@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761E3A2F19E3F92C0097A62F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E3A2E19E3F92C0097A62F /* Extension.swift */; };
 		766211D419E20AF900337784 /* SwiftSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 766211D319E20AF900337784 /* SwiftSSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		766211DE19E20AFA00337784 /* SwiftSSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211DD19E20AFA00337784 /* SwiftSSLTests.swift */; };
 		766211FA19E2E26300337784 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F919E2E26300337784 /* HMAC.swift */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		761E3A2E19E3F92C0097A62F /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		766211CE19E20AF900337784 /* SwiftSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		766211D219E20AF900337784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		766211D319E20AF900337784 /* SwiftSSL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSSL.h; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		761E3A2D19E3F9120097A62F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				761E3A2E19E3F92C0097A62F /* Extension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		766211C419E20AF900337784 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				766211D319E20AF900337784 /* SwiftSSL.h */,
+				761E3A2D19E3F9120097A62F /* Extension */,
 				766211FB19E2E3CA00337784 /* EC */,
 				766211F819E2E1A800337784 /* HMAC */,
 				766211D119E20AF900337784 /* Supporting Files */,
@@ -230,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761E3A2F19E3F92C0097A62F /* Extension.swift in Sources */,
 				766211FA19E2E26300337784 /* HMAC.swift in Sources */,
 				766211FD19E2E46F00337784 /* EC.swift in Sources */,
 			);
