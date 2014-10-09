@@ -11,6 +11,7 @@
 		766211D419E20AF900337784 /* SwiftSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 766211D319E20AF900337784 /* SwiftSSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		766211DE19E20AFA00337784 /* SwiftSSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211DD19E20AFA00337784 /* SwiftSSLTests.swift */; };
 		766211FA19E2E26300337784 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766211F919E2E26300337784 /* HMAC.swift */; };
+		76CA3DED19E6A25700E063B8 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E3A3219E3FD4C0097A62F /* Digest.swift */; };
 		76F486F719E4529600FF1E9E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F486F619E4529600FF1E9E /* SystemConfiguration.framework */; };
 		76F486FA19E4552E00FF1E9E /* SwiftSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766211CE19E20AF900337784 /* SwiftSSL.framework */; };
 		76F486FB19E4554C00FF1E9E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F486F619E4529600FF1E9E /* SystemConfiguration.framework */; };
@@ -253,6 +254,7 @@
 			files = (
 				761E3A2F19E3F92C0097A62F /* Extension.swift in Sources */,
 				766211FA19E2E26300337784 /* HMAC.swift in Sources */,
+				76CA3DED19E6A25700E063B8 /* Digest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

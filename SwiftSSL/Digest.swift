@@ -9,7 +9,7 @@
 import Foundation
 import CommonCrypto
 
-public typealias DigestAlgorithmClosure = (data: UnsafePointer<UInt8>, dataLength: UInt32, inout hash: [UInt8]) -> ()
+public typealias DigestAlgorithmClosure = (data: UnsafePointer<UInt8>, dataLength: UInt32) -> [UInt8]
 
 public enum DigestAlgorithm {
     case MD2, MD4, MD5, SHA1, SHA224, SHA256, SHA384, SHA512
@@ -19,19 +19,54 @@ public enum DigestAlgorithm {
         
         switch self {
         case .MD2:
-            closure = { CC_MD2($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_MD2($0, $1, &hash);
+                
+                return hash
+            }
         case .MD4:
-            closure = { CC_MD4($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_MD4($0, $1, &hash);
+                
+                return hash
+            }
         case .MD5:
-            closure = { CC_MD5($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_MD5($0, $1, &hash);
+                
+                return hash
+            }
         case .SHA1:
-            closure = { CC_SHA1($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_SHA1($0, $1, &hash);
+                
+                return hash
+            }
         case .SHA224:
-            closure = { CC_SHA224($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_SHA224($0, $1, &hash);
+                
+                return hash
+            }
         case .SHA384:
-            closure = { CC_SHA384($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_SHA384($0, $1, &hash);
+                
+                return hash
+            }
         case .SHA512:
-            closure = { CC_SHA512($0, $1, &$2); return }
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_SHA512($0, $1, &hash);
+                
+                return hash
+            }
         default:
             println("Holly SHIT!")
         }
@@ -75,10 +110,9 @@ extension NSData {
         let stringLength = UInt32(self.length)
         let digestLength = algorithm.digestLength()
         
-        var hash = [UInt8](count: digestLength, repeatedValue: 0)
         var closure = algorithm.progressClosure()
         
-        closure(data: string, dataLength: stringLength, hash: &hash)
+        var hash = closure(data: string, dataLength: stringLength)
         
         var resultData = NSData(bytes: hash, length: digestLength)
         var resultString: String = NSString(data: resultData, encoding: NSUTF8StringEncoding)
