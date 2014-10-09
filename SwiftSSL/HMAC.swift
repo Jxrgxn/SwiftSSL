@@ -66,7 +66,7 @@ extension NSData {
         let digestLength = algorithm.digestLength()
         let keyString = key.cStringUsingEncoding(NSUTF8StringEncoding)
         let keyLength = UInt(key.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
-        var result: CUnsignedChar = 0
+        var result = [UInt8](count: digestLength, repeatedValue: 0)
         
         CCHmac(algorithm.toCCEnum(), keyString!, keyLength, string, stringLength, &result)
         

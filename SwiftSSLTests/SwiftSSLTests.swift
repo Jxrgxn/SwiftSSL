@@ -19,6 +19,7 @@ class SwiftSSLTests: XCTestCase {
     func testHMAC_MD5() {
         var planText: String = "This is MD5 test."
         var signature = planText.sign(SwiftSSL.HMACAlgorithm.MD5, key: "Halo")
+        println("\(signature)")
         
         XCTAssertEqual(signature, "391b07919974622fe55a7f3dea276f83", signature)
     }
