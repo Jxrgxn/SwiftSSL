@@ -10,7 +10,7 @@ import Foundation
 import CommonCrypto
 
 // Base: http://stackoverflow.com/a/24411522/313633
-public enum HMACAlgorithm {
+public enum HMACAlgorithm: Printable {
     case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
     
     func toCCEnum() -> CCHmacAlgorithm {
@@ -50,6 +50,25 @@ public enum HMACAlgorithm {
         }
         return Int(result)
     }
+    
+    public var description: String {
+        get {
+            switch self {
+            case .MD5:
+                return "HMAC.MD5"
+            case .SHA1:
+                return "HMAC.SHA1"
+            case .SHA224:
+                return "HMAC.SHA224"
+            case .SHA256:
+                return "HMAC.SHA256"
+            case .SHA384:
+                return "HMAC.SHA384"
+            case .SHA512:
+                return "HMAC.SHA512"
+            }
+        }
+    }
 }
 
 extension String {
@@ -64,11 +83,13 @@ extension NSData {
         let string = UnsafePointer<UInt8>(self.bytes)
         let stringLength = UInt(self.length)
         let digestLength = algorithm.digestLength()
-        let keyString = key.cStringUsingEncoding(NSUTF8StringEncoding)
+        let keyString = key.cStringUsingEncoding(NSUTF8StringEncoding)!
         let keyLength = UInt(key.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         var result = [UInt8](count: digestLength, repeatedValue: 0)
         
-        CCHmac(algorithm.toCCEnum(), keyString!, keyLength, string, stringLength, &result)
+        CCHmac(algorithm.toCCEnum(), keyString, keyLength, string, stringLength, &result)
+        
+        println("\(algorithm), \(result)")
         
         var hash: String = ""
         for i in 0..<digestLength {
