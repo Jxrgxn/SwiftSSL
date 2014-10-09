@@ -11,7 +11,7 @@ import CommonCrypto
 
 public typealias DigestAlgorithmClosure = (data: UnsafePointer<UInt8>, dataLength: UInt32) -> [UInt8]
 
-public enum DigestAlgorithm {
+public enum DigestAlgorithm: Printable {
     case MD2, MD4, MD5, SHA1, SHA224, SHA256, SHA384, SHA512
     
     func progressClosure() -> DigestAlgorithmClosure {
@@ -21,49 +21,56 @@ public enum DigestAlgorithm {
         case .MD2:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_MD2($0, $1, &hash);
+                CC_MD2($0, $1, &hash)
                 
                 return hash
             }
         case .MD4:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_MD4($0, $1, &hash);
+                CC_MD4($0, $1, &hash)
                 
                 return hash
             }
         case .MD5:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_MD5($0, $1, &hash);
+                CC_MD5($0, $1, &hash)
                 
                 return hash
             }
         case .SHA1:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_SHA1($0, $1, &hash);
+                CC_SHA1($0, $1, &hash)
                 
                 return hash
             }
         case .SHA224:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_SHA224($0, $1, &hash);
+                CC_SHA224($0, $1, &hash)
+                
+                return hash
+            }
+        case .SHA256:
+            closure = {
+                var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
+                CC_SHA256($0, $1, &hash)
                 
                 return hash
             }
         case .SHA384:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_SHA384($0, $1, &hash);
+                CC_SHA384($0, $1, &hash)
                 
                 return hash
             }
         case .SHA512:
             closure = {
                 var hash = [UInt8](count: self.digestLength(), repeatedValue: 0)
-                CC_SHA512($0, $1, &hash);
+                CC_SHA512($0, $1, &hash)
                 
                 return hash
             }
@@ -86,6 +93,8 @@ public enum DigestAlgorithm {
             result = CC_SHA1_DIGEST_LENGTH
         case .SHA224:
             result = CC_SHA224_DIGEST_LENGTH
+        case .SHA256:
+            result = CC_SHA256_DIGEST_LENGTH
         case .SHA384:
             result = CC_SHA384_DIGEST_LENGTH
         case .SHA512:
@@ -94,6 +103,29 @@ public enum DigestAlgorithm {
             println("Holly SHIT!")
         }
         return Int(result)
+    }
+    
+    public var description: String {
+        get {
+            switch self {
+            case .MD2:
+                return "Digest.MD2"
+            case .MD4:
+                return "Digest.MD4"
+            case .MD5:
+                return "Digest.MD5"
+            case .SHA1:
+                return "Digest.SHA1"
+            case .SHA224:
+                return "Digest.SHA224"
+            case .SHA256:
+                return "Digest.SHA256"
+            case .SHA384:
+                return "Digest.SHA384"
+            case .SHA512:
+                return "Digest.SHA512"
+            }
+        }
     }
 }
 
@@ -114,9 +146,11 @@ extension NSData {
         
         var hash = closure(data: string, dataLength: stringLength)
         
-        var resultData = NSData(bytes: hash, length: digestLength)
-        var resultString: String = NSString(data: resultData, encoding: NSUTF8StringEncoding)
+        var hashString: String = ""
+        for i in 0..<digestLength {
+            hashString += String(format: "%02x", hash[i])
+        }
         
-        return resultString
+        return hashString
     }
 }
