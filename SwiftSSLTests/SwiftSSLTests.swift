@@ -9,13 +9,12 @@
 import XCTest
 import SwiftSSL
 
-/**
- * test value based on: http://tool.oschina.net/encrypt?type=2
- */
-
 class SwiftSSLTests: XCTestCase {
     // MARK: - HMAC
     
+    /**
+    * HMAC test case values based on: http://www.freeformatter.com/hmac-generator.html
+    */
     func testHMAC_MD5() {
         var planText: String = "This is MD5 test. If you wanna help me to make this better, you can send me BTSX to dayzh. :]"
         var signature = planText.sign(SwiftSSL.HMACAlgorithm.MD5, key: "Halo")
@@ -34,7 +33,7 @@ class SwiftSSLTests: XCTestCase {
         var planText: String = "This is SHA224 test. If you wanna help me to make this better, you can send me BTSX to dayzh. :]"
         var signature = planText.sign(SwiftSSL.HMACAlgorithm.SHA224, key: "Halo")
         
-        XCTAssertEqual(signature, "794c0c9d1a47bf9bf9c2ca37e9f8c8a1c9c888336dcc22dccb3b61c9", signature)
+        XCTAssertEqual(signature, "86cafaea0d3085c467de42660fa777427117d616ed9f6d5d0b36ce62", signature)
     }
     
     func testHMAC_SHA256() {
@@ -48,7 +47,7 @@ class SwiftSSLTests: XCTestCase {
         var planText: String = "This is SHA384 test. If you wanna help me to make this better, you can send me BTSX to dayzh. :]"
         var signature = planText.sign(SwiftSSL.HMACAlgorithm.SHA384, key: "Halo")
         
-        XCTAssertEqual(signature, "a79a230cdf7b3d9a7ddb7781582f0795f039e08e3a7a0454fd56024161c1bb3f6ac47c68bd7c33d9ee2e6b1c8880bdb5", signature)
+        XCTAssertEqual(signature, "7d096c0bc916baaf272333b2b84b7ed9b8505d20bf350dbcd57d1eaa22f60b53fd9b7af24a087cc331eea1559318d56d", signature)
     }
     
     func testHMAC_SHA512() {

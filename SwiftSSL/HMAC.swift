@@ -89,8 +89,6 @@ extension NSData {
         
         CCHmac(algorithm.toCCEnum(), keyString, keyLength, string, stringLength, &result)
         
-        println("\(algorithm), \(result)")
-        
         var hash: String = ""
         for i in 0..<digestLength {
             hash += String(format: "%02x", result[i])
