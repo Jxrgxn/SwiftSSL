@@ -11,7 +11,7 @@ import CommonCrypto
 
 public typealias DigestAlgorithmClosure = (data: UnsafePointer<UInt8>, dataLength: UInt32) -> [UInt8]
 
-public enum DigestAlgorithm: Printable {
+public enum DigestAlgorithm: CustomStringConvertible {
     case MD2, MD4, MD5, SHA1, SHA224, SHA256, SHA384, SHA512
     
     func progressClosure() -> DigestAlgorithmClosure {
@@ -74,8 +74,6 @@ public enum DigestAlgorithm: Printable {
                 
                 return hash
             }
-        default:
-            println("Holly SHIT!")
         }
         return closure!
     }
@@ -99,8 +97,6 @@ public enum DigestAlgorithm: Printable {
             result = CC_SHA384_DIGEST_LENGTH
         case .SHA512:
             result = CC_SHA512_DIGEST_LENGTH
-        default:
-            println("Holly SHIT!")
         }
         return Int(result)
     }
@@ -131,7 +127,7 @@ public enum DigestAlgorithm: Printable {
 
 extension String {
     public func digest(algorithm: DigestAlgorithm) -> String {
-        var data = self.dataUsingEncoding(NSUTF8StringEncoding)
+        let data = self.dataUsingEncoding(NSUTF8StringEncoding)
         return data!.digest(algorithm)
     }
 }
@@ -142,7 +138,7 @@ extension NSData {
         let stringLength = UInt32(self.length)
         let digestLength = algorithm.digestLength()
         
-        var closure = algorithm.progressClosure()
+        let closure = algorithm.progressClosure()
         
         var hash = closure(data: string, dataLength: stringLength)
         

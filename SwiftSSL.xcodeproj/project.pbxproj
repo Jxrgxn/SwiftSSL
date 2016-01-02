@@ -38,7 +38,6 @@
 		766211DD19E20AFA00337784 /* SwiftSSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSSLTests.swift; sourceTree = "<group>"; };
 		766211F919E2E26300337784 /* HMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
 		766211FE19E2E7DC00337784 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
-		7662120619E3DC7700337784 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = SwiftSSL/Playground.playground; sourceTree = "<group>"; };
 		76F486F619E4529600FF1E9E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,7 +82,6 @@
 		766211C419E20AF900337784 = {
 			isa = PBXGroup;
 			children = (
-				7662120619E3DC7700337784 /* Playground.playground */,
 				766211D019E20AF900337784 /* SwiftSSL */,
 				7662120019E2E7E700337784 /* Frameworks */,
 				766211DA19E20AFA00337784 /* SwiftSSLTests */,
@@ -201,7 +199,9 @@
 		766211C519E20AF900337784 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = SwiftP2P;
 				TargetAttributes = {
 					766211CD19E20AF900337784 = {
@@ -298,6 +298,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -378,6 +379,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				MODULEMAP_FILE = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftp2p.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = CommonCrypto;
@@ -401,6 +403,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				MODULEMAP_FILE = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftp2p.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = CommonCrypto;
@@ -424,6 +427,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftp2p.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
@@ -442,6 +446,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftp2p.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = CommonCrypto;
 			};
